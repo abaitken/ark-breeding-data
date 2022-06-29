@@ -2,12 +2,3 @@ body {
   padding-top: 5rem;
   background: #e5e5e5;
 }
-
-.interactable {
-  cursor: pointer;
-}
-
-
-.container {
-  max-width: 90%;
-}
