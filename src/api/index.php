@@ -1,36 +1,8 @@
 <?php
 header("Content-Type: application/json");
 
-function BuildDatasetFilename($query) {
-
-    if(!array_key_exists('id', $query))
-        return NULL;
-
-    if(preg_match('/[/\.]/', $query['id']))
-        return NULL;
-
-    if(!array_key_exists('set', $query))
-        return '../data/' . $query['id'] . '.json';
-    
-    return '../data/' . $query['set'] . '/' . $query['id'] . '.json';
-}
-
 $parts = parse_url($_SERVER['REQUEST_URI']);
 parse_str($parts['query'], $query);
-
-$filename = BuildDatasetFilename($query);
-
-if($filename == NULL)
-{
-    echo "{}";
-    exit;
-}
-
-if(!file_exists($filename))
-{
-    echo "{}";
-    exit;
-}
 
 $format = 'full';
 
@@ -39,10 +11,29 @@ if(array_key_exists('format', $query))
 
 switch ($format) {
     case 'full':
-        echo file_get_contents($filename);
-        break;
-    case 'timestamp':
-        echo '{"timestamp": ' . filemtime($filename) . '}';
+        $mapContents = file_get_contents("../data/maps.json");
+        $mapData = json_decode($mapContents, true);
+        
+        $result = array();
+        
+        foreach($mapData as $map) {
+            $hidden = $map["Hidden"];
+            if($hidden) 
+                continue;
+            
+            $id = $map["Id"];
+            
+            $item = array();
+            $item["text"] = $map["Text"];
+            $item["filename"] = $id . ".asb";
+            $item["url"] = "data/" . $id . ".asb";
+            $item["modified"] = date(DATE_ATOM, filemtime("../data/" . $id . ".asb"));
+            
+            array_push($result, $item);
+        }
+        
+        echo json_encode($result);
+        
         break;
     default:
         echo "{}";

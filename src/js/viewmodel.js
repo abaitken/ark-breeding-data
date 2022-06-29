@@ -2,12 +2,12 @@ function ViewModel() {
 	let self = this;
 	self.dataReady = ko.observable(false);
 	self.messages = ko.observable('Fetching...');
-	self.maps = ko.observableArray([]);
+	self.files = ko.observableArray([]);
 	
 
     self.GenerateDatasetUrl = function () {
         if (location.href.startsWith('file'))
-            return 'data/maps.json';
+            return 'data/demo.json';
 
         return 'api/index.php';
     };
@@ -31,8 +31,8 @@ function ViewModel() {
 
 	self.Init = function () {
         self.fetchData(self.GenerateDatasetUrl())
-        .then((maps) => {
-            self.maps = maps;
+        .then((files) => {
+            self.files = files;
             ko.applyBindings(self);
             self.dataReady(true);
         });
