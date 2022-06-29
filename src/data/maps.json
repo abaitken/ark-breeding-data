@@ -1,0 +1,74 @@
+[
+	{
+		"Id": "fjordur",
+        "Hidden": true,
+		"Text": "Fjordur",
+		"Code": "fj"
+	},
+	{
+		"Id": "lostis",
+        "Hidden": true,
+		"Text": "Lost Island",
+		"Code": "li"
+	},
+	{
+		"Id": "crystalis",
+        "Hidden": true,
+		"Text": "Crystal Isles",
+		"Code": "ci"
+	},
+	{
+		"Id": "valguero",
+        "Hidden": true,
+		"Text": "Valguero",
+		"Code": "val"
+	},
+	{
+		"Id": "ragnarok",
+        "Hidden": true,
+		"Text": "Ragnarok",
+		"Code": "rag"
+	},
+	{
+		"Id": "center",
+        "Hidden": true,
+		"Text": "The Center",
+		"Code": "tc"
+	},
+	{
+		"Id": "gen2",
+        "Hidden": true,
+		"Text": "Genesis 2",
+		"Code": "g2"
+	},
+	{
+		"Id": "gen1",
+        "Hidden": true,
+		"Text": "Genesis 1",
+		"Code": "g1"
+	},
+	{
+		"Id": "extinction",
+        "Hidden": true,
+		"Text": "Extinction",
+		"Code": "ex"
+	},
+	{
+		"Id": "aberration",
+        "Hidden": false,
+		"Text": "Aberration",
+		"Code": "ab"
+	},
+	{
+		"Id": "scorched",
+        "Hidden": false,
+		"Text": "Scorched Earth",
+		"Code": "se"
+	},
+	{
+		"Id": "island",
+        "Hidden": false,
+		"Text": "The Island",
+		"Code": "ti"
+	}
+]

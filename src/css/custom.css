@@ -1,0 +1,69 @@
+body {
+  padding-top: 5rem;
+  background: #e5e5e5;
+}
+
+.interactable {
+  cursor: pointer;
+}
+
+td.noteCell {
+  background-color: rgb(255, 173, 173);
+  font-size: 1.1em;
+}
+
+td.noteCell.noteFound {
+  background-color: rgb(173, 201, 173);
+  font-size: 0.9em;
+}
+
+.note-coordinates {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.note-cavetext {
+  font-style: italic;
+}
+
+.progressText {
+  font-size: 2em;
+}
+
+.map {
+  position: relative;
+  width: 90%;
+}
+
+.mapImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 25%;
+}
+
+.notePosition {
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid black;
+  background-color: red;
+}
+
+.characterPosition {
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid black;
+  background-color: blue;
+}
+
+
+
+.container {
+  max-width: 90%;
+}
