@@ -29,6 +29,7 @@
             <tr>
                 <th>Map</th>
                 <th>File</th>
+                <th>Filesize</th>
                 <th>Modified</th>
             </tr>
         </thead>
@@ -37,6 +38,7 @@
             <tr>
                 <td data-bind="text: text"></td>
                 <td><a data-bind="text: filename, attr: { 'href': url, 'download': filename }"></a></td>
+                <td data-bind="text: filesize"></td>
                 <td data-bind="text: modified"></td>
             </tr>
             <!-- /ko -->
