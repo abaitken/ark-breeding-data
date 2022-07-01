@@ -35,6 +35,9 @@ switch ($action) {
             
             array_push($result, $item);
         }
+    
+    	$defaultSize = filesize("../data/default.asb");
+    	$total = 0;
         
         foreach($mapData as $map) {
             $hidden = $map["Hidden"];
@@ -51,10 +54,15 @@ switch ($action) {
             $item["filename"] = $id . ".asb";
             $item["url"] = "api/index.php?action=download&id=" . $id;
             $item["modified"] = date(DATE_ATOM, filemtime("../data/" . $id . ".asb"));
-            $item["filesize"] = human_filesize(filesize("../data/" . $id . ".asb"), 2);
+          	$filesize = filesize("../data/" . $id . ".asb");
+          	$total += ($filesize - 1);
+            $item["filesize"] = human_filesize($filesize, 2);
             
             array_push($result, $item);
         }
+    
+    	$total += $defaultSize;
+    	$result[0]["filesize"] = '~' . human_filesize($total, 2);
         
         echo json_encode($result);
         
@@ -97,10 +105,11 @@ switch ($action) {
             if($hidden) 
                 continue;
             
+            $id = $map["Id"];
+            
             if(!file_exists("../data/" . $id . ".asb"))
                 continue;
-            
-            $id = $map["Id"];
+          
             $contents = file_get_contents("../data/" . $id . ".asb");
             $breedingData = json_decode($contents, true);
             
