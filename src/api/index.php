@@ -2,7 +2,10 @@
 header("Content-Type: application/json");
 
 function human_filesize($bytes, $decimals = 2) {
-    return $bytes;
+    $size   = array('B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+    $factor = floor((strlen($bytes) - 1) / 3);
+
+    return sprintf("%.{$dec}f", $bytes / pow(1024, $factor)) . $size[$factor];
 }
 
 
@@ -48,7 +51,7 @@ switch ($action) {
             $item["filename"] = $id . ".asb";
             $item["url"] = "api/index.php?action=download&id=" . $id;
             $item["modified"] = date(DATE_ATOM, filemtime("../data/" . $id . ".asb"));
-            $item["filesize"] = human_filesize("../data/" . $id . ".asb", 2);
+            $item["filesize"] = human_filesize(filesize("../data/" . $id . ".asb"), 2);
             
             array_push($result, $item);
         }
