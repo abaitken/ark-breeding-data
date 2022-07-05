@@ -49,7 +49,7 @@
 	},
 	{
 		"Id": "extinction",
-        "Hidden": true,
+        "Hidden": false,
 		"Text": "Extinction",
 		"Code": "ex"
 	},
