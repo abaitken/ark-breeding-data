@@ -31,12 +31,27 @@ function ViewModel() {
 
 	self.Init = function () {
         self.fetchData(self.GenerateDatasetUrl())
-        .then((files) => {
-            self.files = files;
+        .then((data) => {
+
+			let files = [];
+			for(let i = 0; i < data.length; i ++) {
+				files.push(new FileViewModel(data[i]));
+			}
+
+            self.files(files);
             ko.applyBindings(self);
             self.dataReady(true);
         });
 	};
+}
+
+function FileViewModel(item) {
+	let self = this;
+	self.text = item['text'];
+	self.filename = item['filename'];
+	self.url = item['url'];
+	self.filesize = item['filesize'];
+	self.modified = new Date(item['modified']).toLocaleString();
 }
 
 let vm = new ViewModel();
