@@ -30,7 +30,7 @@ switch ($action) {
             $item["text"] = "All merged";
             $item["filename"] = "cluster.asb";
             $item["url"] = "api/index.php?action=download-merged";
-            $item["modified"] = "-";
+            $item["modified"] = date(DATE_ATOM, time());
             $item["filesize"] = "-";
             
             array_push($result, $item);
