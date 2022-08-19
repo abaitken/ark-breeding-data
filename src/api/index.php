@@ -38,6 +38,7 @@ switch ($action) {
     
     	$defaultSize = filesize("../data/default.asb");
     	$total = 0;
+        $clusterModified = 0;
         
         foreach($mapData as $map) {
             $hidden = $map["Hidden"];
@@ -53,7 +54,10 @@ switch ($action) {
             $item["text"] = $map["Text"];
             $item["filename"] = $id . ".asb";
             $item["url"] = "api/index.php?action=download&id=" . $id;
-            $item["modified"] = date(DATE_ATOM, filemtime("../data/" . $id . ".asb"));
+            $modified = filemtime("../data/" . $id . ".asb");
+            $clusterModified = $clusterModified > $modified ? $clusterModified : $modified;
+            
+            $item["modified"] = date(DATE_ATOM, $modified);
           	$filesize = filesize("../data/" . $id . ".asb");
           	$total += ($filesize - 1);
             $item["filesize"] = human_filesize($filesize, 2);
@@ -63,6 +67,7 @@ switch ($action) {
     
     	$total += $defaultSize;
     	$result[0]["filesize"] = '~' . human_filesize($total, 2);
+        $result[0]["modified"] = date(DATE_ATOM, $clusterModified);
         
         echo json_encode($result);
         
