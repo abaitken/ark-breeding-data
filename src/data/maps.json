@@ -25,7 +25,7 @@
 	},
 	{
 		"Id": "ragnarok",
-        "Hidden": true,
+        "Hidden": false,
 		"Text": "Ragnarok",
 		"Code": "rag"
 	},
