@@ -43,7 +43,7 @@
 	},
 	{
 		"Id": "gen1",
-        "Hidden": true,
+        "Hidden": false,
 		"Text": "Genesis 1",
 		"Code": "g1"
 	},
