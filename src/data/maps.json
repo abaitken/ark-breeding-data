@@ -36,13 +36,13 @@
 		"Code": "tc"
 	},
 	{
-		"Id": "gen2",
+		"Id": "genesis2",
         "Hidden": true,
 		"Text": "Genesis 2",
 		"Code": "g2"
 	},
 	{
-		"Id": "gen1",
+		"Id": "genesis1",
         "Hidden": false,
 		"Text": "Genesis 1",
 		"Code": "g1"
