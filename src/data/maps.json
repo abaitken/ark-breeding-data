@@ -1,7 +1,7 @@
 [
 	{
 		"Id": "fjordur",
-        "Hidden": true,
+        "Hidden": false,
 		"Text": "Fjordur",
 		"Code": "fj"
 	},
