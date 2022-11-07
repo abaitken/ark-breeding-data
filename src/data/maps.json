@@ -31,7 +31,7 @@
 	},
 	{
 		"Id": "center",
-        "Hidden": true,
+        "Hidden": false,
 		"Text": "The Center",
 		"Code": "tc"
 	},
